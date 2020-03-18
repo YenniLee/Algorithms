@@ -7,7 +7,7 @@ def find_max_profit(prices):
   max_profit = prices[1] - prices[0]
 
   for i in range(1, len(prices)):
-    if prices[1] < current_min_price:
+    if prices[i] < current_min_price:
       current_min_price = prices[i]
       # print('current min price:', current_min_price)
     elif prices[i] - current_min_price > max_profit:
@@ -16,7 +16,7 @@ def find_max_profit(prices):
   return max_profit
 
 
-print(find_max_profit([1050, 270, 1540, 3800, 2]))
+print(find_max_profit([100, 90, 80, 50, 20, 10]))
 
 
 if __name__ == '__main__':
