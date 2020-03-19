@@ -8,18 +8,29 @@ import sys
 
 ## can eat 1, 2, or 3 cookies at a time
 
+# n = 1 
+# 1. 1 cookie 1 time 
+
+# n = 2 
+# 1. 1 cookie 1 time 1 cookie 1 time 
+# 2. 2 cookie 1 time 
+
+# n = 3 
+# 1. 1 cookie 1 time 1 cookie 1 time 1 cookie 1 time 
+# 2. 2 cookie 1 time 1 cookie 1 time
+
 def eating_cookies(n, cache=None):
+  if cache is None:
+    cache = {}
   if n < 0:
     return 0
   elif n == 0:
     return 1
   elif n == 1:
     return 1
-  elif cache and cache[n] > 0:
+  elif cache and cache[n]:
     return cache[n]
   else:
-    if cache is None:
-      cache = {}
     cache[n] = eating_cookies(n-1, cache) + eating_cookies(n-2, cache) + eating_cookies(n-3, cache)
   return cache[n]
 
